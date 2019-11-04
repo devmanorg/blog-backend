@@ -89,7 +89,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
+STATIC_URL = os.getenv('STATIC_URL', '/static/')
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 
@@ -97,4 +97,4 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT", os.path.join(BASE_DIR, 'media'))
 
 STATIC_ROOT = os.getenv("STATIC_ROOT")
 
-MEDIA_URL = '127.0.0.1:8000/media/'
+MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
