@@ -11,7 +11,7 @@ urlpatterns = [
     path('post/<slug:slug>', views.post_detail, name='post_detail'),
     path('contacts/', views.contacts, name='contacts'),
     path('', views.index, name='index'),
-]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
