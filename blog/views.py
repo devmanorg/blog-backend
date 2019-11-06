@@ -20,7 +20,7 @@ def serialize_post(post):
 
 def index(request):
     all_posts = Post.objects.prefetch_related('author')
-    popular_posts = all_posts.annotate(likes_count=Count('likes')).order_by('-likes_count')[:5]
+    popular_posts = all_posts.annotate(likes_count=Count('likes')).order_by('-likes_count')[:3]
     fresh_posts = all_posts.order_by('-published_at')[:5]
 
     context = {
