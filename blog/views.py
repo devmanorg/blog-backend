@@ -58,7 +58,7 @@ def post_detail(request, slug):
         'post': serialized_post,
         'most_popular_posts': [serialize_post(post) for post in popular_posts],
     }
-    return render(request, 'post-details.html', context)
+    return render(request, 'blog-details.html', context)
 
 
 def contacts(request):
