@@ -52,11 +52,8 @@ def post_detail(request, slug):
         "slug": post.slug,
     }
 
-    popular_posts = Post.objects.annotate(likes_count=Count('likes')).order_by('-likes_count')[:5]
-
     context = {
         'post': serialized_post,
-        'most_popular_posts': [serialize_post(post) for post in popular_posts],
     }
     return render(request, 'blog-details.html', context)
 
