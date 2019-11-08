@@ -58,7 +58,7 @@ def post_detail(request, slug):
     return render(request, 'blog-details.html', context)
 
 
-def contacts(request):
+def contact(request):
     # позже здесь будет код для статистики заходов на эту страницу
     # и для записи фидбека
     coordinates = [55.751244, 37.618423]
@@ -68,4 +68,4 @@ def contacts(request):
         tooltip="Мы здесь",
     ).add_to(folium_map)
     html_map = folium_map._repr_html_()
-    return render(request, 'contacts.html', {"html_map": html_map})
+    return render(request, 'contact.html', {"html_map": html_map})
