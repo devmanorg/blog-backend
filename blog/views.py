@@ -5,6 +5,8 @@ from django.db.models import Count
 
 import folium
 
+from sensive_blog.settings import COMPANY_COORDINATES
+
 
 def serialize_post(post):
     return {
@@ -61,10 +63,9 @@ def post_detail(request, slug):
 def contact(request):
     # позже здесь будет код для статистики заходов на эту страницу
     # и для записи фидбека
-    coordinates = [55.751244, 37.618423]
-    folium_map = folium.Map(location=coordinates, zoom_start=12)
+    folium_map = folium.Map(location=COMPANY_COORDINATES, zoom_start=12)
     folium.Marker(
-        coordinates,
+        COMPANY_COORDINATES,
         tooltip="Мы здесь",
     ).add_to(folium_map)
     html_map = folium_map._repr_html_()
