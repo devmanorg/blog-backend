@@ -1,16 +1,14 @@
 import os
 from environs import Env
-from dotenv import load_dotenv
-load_dotenv()
+
 env = Env()
 env.read_env()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", [])
 
-ALLOWED_HOSTS = []
-
-SECRET_KEY = os.getenv("SECRET_KEY", "REPLACE_ME")
+SECRET_KEY = env.str("SECRET_KEY", "REPLACE_ME")
 
 DEBUG = env.bool("DEBUG", True)
 
