@@ -21,6 +21,9 @@ def serialize_post(post):
 
 
 def index(request):
+    """
+    Вьюхи не оптимизированы, потому что в последней задаче модуля Django ORM нужно их оптимизировать как раз на примере этого сайта.
+    """
     all_posts = Post.objects.prefetch_related('author')
     popular_posts = all_posts.annotate(likes_count=Count('likes')).order_by('-likes_count')[:3]
     fresh_posts = all_posts.order_by('-published_at')[:5]
@@ -33,6 +36,9 @@ def index(request):
 
 
 def post_detail(request, slug):
+    """
+    Вьюхи не оптимизированы, потому что в последней задаче модуля Django ORM нужно их оптимизировать как раз на примере этого сайта.
+    """
     post = Post.objects.get(slug=slug)
     comments = Comment.objects.filter(post=post)
     serialized_comments = []
@@ -61,6 +67,9 @@ def post_detail(request, slug):
 
 
 def contact(request):
+    """
+    Вьюхи не оптимизированы, потому что в последней задаче модуля Django ORM нужно их оптимизировать как раз на примере этого сайта.
+    """
     # позже здесь будет код для статистики заходов на эту страницу
     # и для записи фидбека
     folium_map = folium.Map(location=COMPANY_COORDINATES, zoom_start=12)
