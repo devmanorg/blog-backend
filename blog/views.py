@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from blog.models import Comment, Post
-
-from django.db.models import Count
-
 import folium
 
+from django.db.models import Count
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+
+from blog.models import Comment
+from blog.models import Post
 from sensive_blog.settings import COMPANY_COORDINATES
 
 
@@ -39,7 +40,7 @@ def post_detail(request, slug):
     """
     Вьюхи не оптимизированы, потому что в последней задаче модуля Django ORM нужно их оптимизировать как раз на примере этого сайта.
     """
-    post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     comments = Comment.objects.filter(post=post)
     serialized_comments = []
     for comment in comments:
