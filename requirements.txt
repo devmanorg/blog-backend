@@ -1,10 +1,5 @@
 Django==2.2.24
 environs==5.2.1
-Jinja2==2.11.3
-MarkupSafe==1.1.1
-marshmallow==3.0.5
 Pillow==8.3.2
-pytz==2019.2
-sqlparse==0.3.0
 folium==0.10.0
 django-debug-toolbar==2.2.1
