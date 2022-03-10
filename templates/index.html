@@ -11,9 +11,7 @@
   <link rel="stylesheet" href={% static "styles.min.css" %}>
 </head>
 <body>
-  {% for post in fresh_posts %}
-      <p>{{ post.title }}<br><p/>
-  {% endfor %}
+
   <!--================Header Menu Area =================-->
   <header class="header_area">
     <div class="main_menu">
@@ -104,7 +102,7 @@
               <div class="details mt-20">
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.text|truncatechars_html:200 }}</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                <a class="button" href='post/{{post.slug}}'>Read More <i class="ti-arrow-right"></i></a>
               </div>
             </div>
             {% endfor %}
