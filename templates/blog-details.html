@@ -1,226 +1,65 @@
-<!DOCTYPE html>
-{% extends 'base.html' %}
-{% load static %}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Remake Barber - Blog Details</title>
-	<link rel="icon" href={% static "img/favicon.png" %} type="image/png">
-
-  <link rel="stylesheet" href={% static "styles.min.css" %}>
-</head>
-<body>
-  <!--================Header Menu Area =================-->
-  {% block content %}
-  <header class="header_area">
-    <div class="main_menu">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container box_1620">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src={% static "img/logo.png" %} alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right navbar-social">
-              <li><a href="#"><i class="ti-facebook"></i></a></li>
-              <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li><a href="#"><i class="ti-instagram"></i></a></li>
-              <li><a href="#"><i class="ti-skype"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!--================Header Menu Area =================-->
-
-  <!--================ Hero sm Banner start =================-->
-  <section class="mb-30px">
-    <div class="container">
-      <div class="hero-banner hero-banner--sm">
-        <div class="hero-banner__content">
-          <h1>Blog details</h1>
-          <nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--================ Hero sm Banner end =================-->
-
-
-
-
-{% block title %}{{ post.title }}{% endblock %}
-  <!--================ Start Blog Post Area =================-->
-  <section class="blog-post-area section-margin">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-            <div class="main_blog_details">
-                {% if post.image_url %}
-                  <img class="img-fluid" src={{ post.image_url }} alt="">
-                {% else %}
-                  <img class="img-fluid" src={% static "img/banner/blog.png" %} alt="">
-                {% endif %}
-                <h4>{{ post.title }}</h4>
-                <div class="user_details">
-                  <div class="mt-sm-0 mt-3">
-                    <div class="media">
-                      <div class="media-body">
-                        <h5>{{ post.author }}</h5>
-                        <p>{{ post.published_at }}</p>
+  <!DOCTYPE html>
+  {% extends 'base.html' %}
+  {% load static %}
+  {% block title %}{{ post.title }}{% endblock %}
+  {% block content_blog_details_page %}
+    <!--================ Start Blog Post Area =================-->
+    <section class="blog-post-area section-margin">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+              <div class="main_blog_details">
+                  {% if post.image_url %}
+                    <img class="img-fluid" src={{ post.image_url }} alt="img/banner/blog.png">
+                  {% else %}
+                    <img class="img-fluid" src={% static "img/banner/blog.png" %} alt="img/banner/blog.png">
+                  {% endif %}
+                  <h4>{{ post.title }}</h4>
+                  <div class="user_details">
+                    <div class="mt-sm-0 mt-3">
+                      <div class="media">
+                        <div class="media-body">
+                          <h5>{{ post.author }}</h5>
+                          <p>{{ post.published_at }}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <p>{{ post.text }}</p>
-               <div class="news_d_footer flex-column flex-sm-row">
-                 <a href="#"><span class="align-middle mr-2"><i class="ti-heart" style="color: red"></i></span> {{ post.likes_amount }} people like this</a>
-                 <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }} Comments</a>
-                 <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
-               <a href="#"><i class="fab fa-facebook-f"></i></a>
-               <a href="#"><i class="fab fa-twitter"></i></a>
-               <a href="#"><i class="fab fa-dribbble"></i></a>
-               <a href="#"><i class="fab fa-behance"></i></a>
-             </div>
+                  <p>{{ post.text }}</p>
+                 <div class="news_d_footer flex-column flex-sm-row">
+                   <a href="#"><span class="align-middle mr-2"><i class="ti-heart" style="color: red"></i></span> {{ post.likes_amount }} people like this</a>
+                   <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }} Comments</a>
+                   <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
+                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#"><i class="fab fa-twitter"></i></a>
+                 <a href="#"><i class="fab fa-dribbble"></i></a>
+                 <a href="#"><i class="fab fa-behance"></i></a>
                </div>
-              </div>
-
-                <div class="comments-area">
-                    <h4>{{ post.comments|length }} Comments</h4>
-                    {% for comment in post.comments %}
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="desc">
-                                    <h5><a href="#">{{ comment.author }}</a></h5>
-                                    <p class="date">{{ comment.published_at }}</p>
-                                    <p class="comment">{{ comment.text }}</p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                 </div>
                 </div>
-        </div>
 
-
-          <!-- Start Blog Post Siddebar -->
-          <div class="col-lg-4 sidebar-widgets">
-              <div class="widget-wrap">
-                <div class="single-sidebar-widget newsletter-widget">
-                  <h4 class="single-sidebar-widget__title">Newsletter</h4>
-                  <div class="form-group mt-30">
-                    <div class="col-autos">
-                      <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''"
-                        onblur="this.placeholder = 'Enter email'">
-                    </div>
+                  <div class="comments-area">
+                      <h4>{{ post.comments|length }} Comments</h4>
+                      {% for comment in post.comments %}
+                      <div class="comment-list">
+                          <div class="single-comment justify-content-between d-flex">
+                              <div class="user justify-content-between d-flex">
+                                  <div class="desc">
+                                      <h5><a href="#">{{ comment.author }}</a></h5>
+                                      <p class="date">{{ comment.published_at }}</p>
+                                      <p class="comment">{{ comment.text }}</p>
+                                  </div>
+                              </div>
+                              <div class="reply-btn">
+                                      <a href="" class="btn-reply text-uppercase">reply</a>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
                   </div>
-                  <button class="bbtns d-block mt-20 w-100">Subcribe</button>
-                </div>
-
-
-                <div class="single-sidebar-widget post-category-widget">
-                  <h4 class="single-sidebar-widget" style="height:200px;">Здесь будет реклама</h4>
-                </div>
-              </div>
-            </div>
-          <!-- End Blog Post Siddebar -->
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  {% endblock %}
   <!--================ End Blog Post Area =================-->
-
-  <!--================ Start Footer Area =================-->
-  <footer class="footer-area section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3  col-md-6 col-sm-6">
-          <div class="single-footer-widget">
-            <h6>About Us</h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
-              magna aliqua.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4  col-md-6 col-sm-6">
-          <div class="single-footer-widget">
-            <h6>Newsletter</h6>
-            <p>Stay update with our latest</p>
-            <div class="" id="mc_embed_signup">
-
-              <form target="_blank" novalidate action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                method="get" class="form-inline">
-
-                <div class="d-flex flex-row">
-
-                  <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-                    required="" type="email">
-
-
-                  <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-                  <div style="position: absolute; left: -5000px;">
-                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                  </div>
-
-                </div>
-                <div class="info"></div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3  col-md-6 col-sm-6">
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="single-footer-widget">
-            <h6>Follow Us</h6>
-            <p>Let us be social</p>
-            <div class="footer-social d-flex align-items-center">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-dribbble"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-behance"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-      </div>
-    </div>
-  </footer>
-  <!--================ End Footer Area =================-->
-
-  <script src={% static "scripts.js" %}></script>
-{% endblock %}
-</body>
-</html>
