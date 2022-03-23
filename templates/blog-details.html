@@ -1,7 +1,65 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-<body>
-    <h1>Страница поста</h1>
-</body>
-</html>
+  <!DOCTYPE html>
+  {% extends 'base.html' %}
+  {% load static %}
+  {% block title %}{{ post.title }}{% endblock %}
+  {% block content_blog_details_page %}
+    <!--================ Start Blog Post Area =================-->
+    <section class="blog-post-area section-margin">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+              <div class="main_blog_details">
+                  {% if post.image_url %}
+                    <img class="img-fluid" src={{ post.image_url }} alt="img/banner/blog.png">
+                  {% else %}
+                    <img class="img-fluid" src={% static "img/banner/blog.png" %} alt="img/banner/blog.png">
+                  {% endif %}
+                  <h4>{{ post.title }}</h4>
+                  <div class="user_details">
+                    <div class="mt-sm-0 mt-3">
+                      <div class="media">
+                        <div class="media-body">
+                          <h5>{{ post.author }}</h5>
+                          <p>{{ post.published_at }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>{{ post.text }}</p>
+                 <div class="news_d_footer flex-column flex-sm-row">
+                   <a href="#"><span class="align-middle mr-2"><i class="ti-heart" style="color: red"></i></span> {{ post.likes_amount }} people like this</a>
+                   <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }} Comments</a>
+                   <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
+                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#"><i class="fab fa-twitter"></i></a>
+                 <a href="#"><i class="fab fa-dribbble"></i></a>
+                 <a href="#"><i class="fab fa-behance"></i></a>
+               </div>
+                 </div>
+                </div>
+
+                  <div class="comments-area">
+                      <h4>{{ post.comments|length }} Comments</h4>
+                      {% for comment in post.comments %}
+                      <div class="comment-list">
+                          <div class="single-comment justify-content-between d-flex">
+                              <div class="user justify-content-between d-flex">
+                                  <div class="desc">
+                                      <h5><a href="#">{{ comment.author }}</a></h5>
+                                      <p class="date">{{ comment.published_at }}</p>
+                                      <p class="comment">{{ comment.text }}</p>
+                                  </div>
+                              </div>
+                              <div class="reply-btn">
+                                      <a href="" class="btn-reply text-uppercase">reply</a>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock %}
+  <!--================ End Blog Post Area =================-->
