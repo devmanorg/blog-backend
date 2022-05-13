@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,7 +17,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html"><img src="/static/img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -63,7 +64,7 @@
           <div class="flex-fill" style="margin-right: 30px;">
             <div class="card blog__slide text-center">
               <div class="blog__slide__img">
-                <img class="card-img rounded-0" src="/static/img/blog/blog-slider/blog-slide1.png" alt="">
+                <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide1.png' %}" alt="">
               </div>
               <div class="blog__slide__content">
                 <h3><a href="#">New york fashion week's continued the evolution</a></h3>
@@ -75,7 +76,7 @@
           <div class="flex-fill" style="margin-right: 30px;">
             <div class="card blog__slide text-center">
               <div class="blog__slide__img">
-                <img class="card-img rounded-0" src="/static/img/blog/blog-slider/blog-slide2.png" alt="">
+                <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide2.png' %}" alt="">
               </div>
               <div class="blog__slide__content">
                 <h3><a href="#">New york fashion week's continued the evolution</a></h3>
@@ -87,7 +88,7 @@
           <div class="flex-fill">
             <div class="card blog__slide text-center">
               <div class="blog__slide__img">
-                <img class="card-img rounded-0" src="/static/img/blog/blog-slider/blog-slide3.png" alt="">
+                <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide3.png'%}" alt="">
               </div>
               <div class="blog__slide__content">
                 <h3><a href="#">New york fashion week's continued the evolution</a></h3>
@@ -107,7 +108,7 @@
           <div class="col-lg-8">
             <div class="single-recent-blog-post">
               <div class="thumb">
-                <img class="img-fluid" src="/static/img/blog/blog1.png" alt="">
+                <img class="img-fluid" src="{% static 'img/blog/blog1.png'%}" alt="">
                 <ul class="thumb-info">
                   <li><a href="#"><i class="ti-user"></i>Admin</a></li>
                   <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
@@ -123,7 +124,7 @@
 
             <div class="single-recent-blog-post">
               <div class="thumb">
-                <img class="img-fluid" src="/static/img/blog/blog2.png" alt="">
+                <img class="img-fluid" src="{% static 'img/blog/blog2.png'%}" alt="">
                 <ul class="thumb-info">
                   <li><a href="#"><i class="ti-user"></i>Admin</a></li>
                   <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
@@ -139,7 +140,7 @@
 
             <div class="single-recent-blog-post">
               <div class="thumb">
-                <img class="img-fluid" src="/static/img/blog/blog3.png" alt="">
+                <img class="img-fluid" src="{% static 'img/blog/blog3.png'%}" alt="">
                 <ul class="thumb-info">
                   <li><a href="#"><i class="ti-user"></i>Admin</a></li>
                   <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
@@ -155,7 +156,7 @@
 
             <div class="single-recent-blog-post">
               <div class="thumb">
-                <img class="img-fluid" src="/static/img/blog/blog4.png" alt="">
+                <img class="img-fluid" src="{% static 'img/blog/blog4.png' %}" alt="">
                 <ul class="thumb-info">
                   <li><a href="#"><i class="ti-user"></i>Admin</a></li>
                   <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
@@ -297,6 +298,6 @@
   </footer>
   <!--================ End Footer Area =================-->
 
-  <script src="/static/scripts.js"></script>
+  <script src="{% static 'scripts.js' %}"></script>
 </body>
 </html>
