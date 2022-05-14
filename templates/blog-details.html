@@ -88,7 +88,7 @@
                 <p>{{ post.text }}</p>
                <div class="news_d_footer flex-column flex-sm-row">
                  <a href="#"><span class="align-middle mr-2"><i class="ti-heart"></i></span>{{ post.likes_amount }} people like this</a>
-                 <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>03 Comments</a>
+                 <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }} Comments</a>
                  <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
                <a href="#"><i class="fab fa-facebook-f"></i></a>
                <a href="#"><i class="fab fa-twitter"></i></a>
@@ -100,15 +100,16 @@
 
 
                 <div class="comments-area">
-                    <h4>03 Comments</h4>
+                    <h4>{{ post.comments|length }} Comments</h4>
+                    {% for comment in post.comments %}
                     <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
                             <div class="user justify-content-between d-flex">
                                 <div class="desc">
-                                    <h5><a href="#">Emilly Blunt</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                    <h5><a href="#">{{ comment.author }}</a></h5>
+                                    <p class="date">{{ comment.published_at }}</p>
                                     <p class="comment">
-                                        Never say goodbye till the end comes!
+                                      {{ comment.text }}
                                     </p>
                                 </div>
                             </div>
@@ -117,38 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="desc">
-                                    <h5><a href="#">Maria Luna</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="desc">
-                                    <h5><a href="#">Ina Hayes</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
         </div>
 
