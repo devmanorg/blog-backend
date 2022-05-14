@@ -69,29 +69,25 @@
       <div class="row">
         <div class="col-lg-8">
             <div class="main_blog_details">
-                <img class="img-fluid" src="{% static 'img/blog/blog4.png' %}" alt="">
-                <h4>Cartridge Is Better Than Ever <br /> A Discount Toner</h4>
+                {% if post.image_url %}
+                <img class="img-fluid" src="{{ post.image_url }" alt="">
+                {% else %}
+                <img class="img-fluid" src="{% static 'img/blog/blog1.png' %}" alt="">
+                {% endif %}
+                <h4>{{ post.title}} </h4>
                 <div class="user_details">
                   <div class="mt-sm-0 mt-3">
                     <div class="media">
                       <div class="media-body">
-                        <h5>Mark wiens</h5>
-                        <p>12 Dec, 2017 11:21 am</p>
+                        <h5>{{ post.author}}</h5>
+                        <p>{{ post.published_at }}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc scelerisque ut erat ut auctor. Praesent bibendum justo ante, sed sodales massa eleifend non. Duis elit felis, rutrum id nulla et, tristique consectetur ipsum. Aenean eu purus faucibus, vestibulum urna volutpat, facilisis libero. Phasellus scelerisque risus nunc, vitae fringilla lacus molestie sit amet. Nunc a urna vel dui varius commodo quis nec neque. Aliquam id ipsum mauris. Etiam quis sodales est.
-
-                Vivamus maximus ligula eget pellentesque imperdiet. Aenean sed velit vestibulum, iaculis erat ut, ultricies ex. Donec in lectus at ante pharetra hendrerit. Integer venenatis varius enim, sit amet lobortis velit elementum a. Morbi ut ultricies mi. Nunc aliquet felis sit amet vestibulum fringilla. Nunc vitae euismod eros. Pellentesque ac magna hendrerit dui luctus hendrerit. Sed condimentum, arcu ut tincidunt commodo, orci mauris tempus diam, in pulvinar justo ante nec diam. Phasellus libero massa, faucibus eget eros vel, vulputate mattis enim. Proin et leo sem. Suspendisse id dolor at neque auctor posuere. Vestibulum facilisis luctus iaculis. Proin sit amet blandit risus. Sed sit amet egestas tortor, aliquam pretium lorem. Duis interdum rutrum tortor, nec placerat tortor lobortis nec.
-
-                Integer fermentum elit quis imperdiet ultrices. Cras velit mi, blandit sed purus a, tincidunt porttitor orci. Nulla a dui a turpis gravida commodo eget a ex. Morbi feugiat metus porttitor, feugiat nulla nec, porta leo. Sed vitae ullamcorper erat, ac malesuada lectus. Ut tristique arcu ac odio interdum, vel porta tortor congue. Curabitur sed fermentum ante, non tristique elit.
-
-                Fusce dictum eget nisl at sodales. Mauris blandit ex tempus sem maximus maximus. Nunc eget efficitur leo. Fusce et odio sed leo mattis commodo vel vitae tellus. Maecenas ante nisl, vestibulum venenatis fringilla sed, ultrices quis nisi. Donec ultrices lectus tempor finibus luctus. Nunc sollicitudin leo vel orci varius facilisis. Suspendisse eu blandit ipsum. Nam sem arcu, bibendum at lorem vitae, rutrum semper odio. Sed velit erat, auctor ac quam nec, dapibus tristique metus. Sed sed diam in lorem consequat mollis. Cras ornare laoreet nisl a fermentum.
-
-                Nulla a dolor urna. Mauris non neque erat. Aliquam nec lacus est. Mauris accumsan eget velit sit amet consectetur. Cras non justo pellentesque nibh consequat consequat. Ut ac purus tristique, tincidunt lectus ut, bibendum felis. Fusce fermentum placerat ligula a eleifend. Nulla facilisi. Etiam mattis ornare nulla vel egestas. Fusce augue metus, hendrerit a ipsum quis, laoreet dignissim lorem.</p>
+                <p>{{ post.text }}</p>
                <div class="news_d_footer flex-column flex-sm-row">
-                 <a href="#"><span class="align-middle mr-2"><i class="ti-heart"></i></span>Lily and 4 people like this</a>
+                 <a href="#"><span class="align-middle mr-2"><i class="ti-heart"></i></span>{{ post.likes_amount }} people like this</a>
                  <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>03 Comments</a>
                  <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
                <a href="#"><i class="fab fa-facebook-f"></i></a>
