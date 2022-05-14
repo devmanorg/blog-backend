@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +8,7 @@
   <title>Remake Barber - Blog Details</title>
 	<link rel="icon" href="img/favicon.png" type="image/png">
 
-  <link rel="stylesheet" href="/home/olga/Desktop/Мои проекты/блог/styles.min.css">
+  <link rel="stylesheet" href="{% static 'styles.min.css' %}">
 </head>
 <body>
   <!--================Header Menu Area =================-->
@@ -16,7 +17,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -34,14 +35,14 @@
               <li><a href="#"><i class="ti-instagram"></i></a></li>
               <li><a href="#"><i class="ti-skype"></i></a></li>
             </ul>
-          </div> 
+          </div>
         </div>
       </nav>
     </div>
   </header>
   <!--================Header Menu Area =================-->
-  
-  <!--================ Hero sm Banner start =================-->      
+
+  <!--================ Hero sm Banner start =================-->
   <section class="mb-30px">
     <div class="container">
       <div class="hero-banner hero-banner--sm">
@@ -57,10 +58,10 @@
       </div>
     </div>
   </section>
-  <!--================ Hero sm Banner end =================-->    
+  <!--================ Hero sm Banner end =================-->
 
 
-  
+
 
   <!--================ Start Blog Post Area =================-->
   <section class="blog-post-area section-margin">
@@ -68,7 +69,7 @@
       <div class="row">
         <div class="col-lg-8">
             <div class="main_blog_details">
-                <img class="img-fluid" src="img/blog/blog4.png" alt="">
+                <img class="img-fluid" src="{% static 'img/blog/blog4.png' %}" alt="">
                 <h4>Cartridge Is Better Than Ever <br /> A Discount Toner</h4>
                 <div class="user_details">
                   <div class="mt-sm-0 mt-3">
@@ -100,7 +101,7 @@
              </div>
                </div>
               </div>
-          
+
 
                 <div class="comments-area">
                     <h4>03 Comments</h4>
@@ -116,10 +117,10 @@
                                 </div>
                             </div>
                             <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a> 
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
                             </div>
                         </div>
-                    </div>	
+                    </div>
                     <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
                             <div class="user justify-content-between d-flex">
@@ -132,10 +133,10 @@
                                 </div>
                             </div>
                             <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a> 
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
                             </div>
                         </div>
-                    </div>	
+                    </div>
                     <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
                             <div class="user justify-content-between d-flex">
@@ -148,10 +149,10 @@
                                 </div>
                             </div>
                             <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a> 
+                                    <a href="" class="btn-reply text-uppercase">reply</a>
                             </div>
                         </div>
-                    </div>	                                             				
+                    </div>
                 </div>
         </div>
 
@@ -253,6 +254,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   </footer>
   <!--================ End Footer Area =================-->
 
-  <script src="/home/olga/Desktop/Мои проекты/блог/scripts.js"></script>
+  <script src="{% static 'scripts.js' %}"></script>
 </body>
 </html>
