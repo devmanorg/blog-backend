@@ -61,41 +61,19 @@
     <section>
       <div class="container">
         <div class="d-flex">
+          {% for post in most_popular_posts %}
           <div class="flex-fill" style="margin-right: 30px;">
             <div class="card blog__slide text-center">
               <div class="blog__slide__img">
-                <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide1.png' %}" alt="">
+                <img class="card-img rounded-0" src="{{ post.image_url }}" alt="">
               </div>
               <div class="blog__slide__content">
-                <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-                <p>2 days ago</p>
+                <h3><a href="#">{{ post.title }}</a></h3>
+                <p> {{ post.published_at }}</p>
               </div>
             </div>
           </div>
-
-          <div class="flex-fill" style="margin-right: 30px;">
-            <div class="card blog__slide text-center">
-              <div class="blog__slide__img">
-                <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide2.png' %}" alt="">
-              </div>
-              <div class="blog__slide__content">
-                <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-                <p>2 days ago</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex-fill">
-            <div class="card blog__slide text-center">
-              <div class="blog__slide__img">
-                <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide3.png'%}" alt="">
-              </div>
-              <div class="blog__slide__content">
-                <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-                <p>2 days ago</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </section>
