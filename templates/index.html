@@ -1,7 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-<body>
-    <h1>Здесь будет главная</h1>
-</body>
-</html>
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sensive Blog - Home{% endblock %}
+
+
+    <!--================Header Menu Area =================-->
+    {% block header_menu_area %}
+      {{ block.super }}
+    {% endblock %}
+    <!--================Header Menu Area =================-->
+
+
+    {% block main %}
+
+      <!--================Hero Banner start =================-->
+      {% block hero_banner %}
+        {{ block.super }}
+      {% endblock %}
+      <!--================Hero Banner end =================-->
+
+
+      <!--================ Blog slider start =================-->
+      {% block start_blog %}
+        {{ block.super }}
+      {% endblock %}
+      <!--================ Blog slider end =================-->
+
+
+      <!--================ Start Blog Post Area =================-->
+      {% block blog_post_area %}
+        {{ block.super }}
+      {% endblock %}
+
+
+      {% block post_siddebar %}
+        {{ block.super }}
+      {% endblock %}
+
+      <!--================ End Blog Post Area =================-->
+    {% endblock %}
+
+
+    <!--================ Start Footer Area =================-->
+    {% block footer_area %}
+      {{ block.super }}
+    {% endblock %}
+    <!--================ End Footer Area =================-->
+
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+
+
