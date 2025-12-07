@@ -1,7 +1,111 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-<body>
-    <h1>Страница поста</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ post.title }} - Blog Details{% endblock %}
+{% block content %}
+  <!--================ Hero sm Banner start =================-->
+  <section class="mb-30px">
+    <div class="container">
+      <div class="hero-banner hero-banner--sm">
+        <div class="hero-banner__content">
+          <h1>Blog details</h1>
+          <nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ Hero sm Banner end =================-->
+  <!--================ Start Blog Post Area =================-->
+  <section class="blog-post-area section-margin">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="main_blog_details">
+            {% if post.image_url %}
+              <img class="img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}" />
+            {% else %}
+              <img class="img-fluid"
+                   src="{% static 'img/banner/blog.png' %}"
+                   alt="{{ post.title }}" />
+            {% endif %}
+            <h4>{{ post.title }}</h4>
+            <div class="user_details">
+              <div class="mt-sm-0 mt-3">
+                <div class="media">
+                  <div class="media-body">
+                    <h5>{{ post.author }}</h5>
+                    <p>{{ post.published_at }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>{{ post.text }}</p>
+            <div class="news_d_footer flex-column flex-sm-row">
+              <a href="#"><span class="align-middle mr-2"><i class="ti-heart" style="color: red"></i></span>{{
+              post.likes_amount }} people like this</a>
+              <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }}
+              Comments</a>
+              <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="comments-area">
+            <h4>{{ post.comments|length }} Comments</h4>
+            {% for comment in post.comments %}
+              <div class="comment-list">
+                <div class="single-comment justify-content-between d-flex">
+                  <div class="user justify-content-between d-flex">
+                    <div class="desc">
+                      <h5>
+                        <a href="#">{{ comment.author }}</a>
+                      </h5>
+                      <p class="date">{{ comment.published_at }}</p>
+                      <p class="comment">{{ comment.text }}</p>
+                    </div>
+                  </div>
+                  <div class="reply-btn">
+                    <a href="" class="btn-reply text-uppercase">reply</a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- Start Blog Post Siddebar -->
+        <div class="col-lg-4 sidebar-widgets">
+          <div class="widget-wrap">
+            <div class="single-sidebar-widget newsletter-widget">
+              <h4 class="single-sidebar-widget__title">Newsletter</h4>
+              <div class="form-group mt-30">
+                <div class="col-autos">
+                  <input type="text"
+                         class="form-control"
+                         id="inlineFormInputGroup"
+                         placeholder="Enter email"
+                         onfocus="this.placeholder = ''"
+                         onblur="this.placeholder = 'Enter email'">
+                </div>
+              </div>
+              <button class="bbtns d-block mt-20 w-100">Subcribe</button>
+            </div>
+            <div class="single-sidebar-widget post-category-widget">
+              <h4 class="single-sidebar-widget" style="height:200px;">Здесь будет реклама</h4>
+            </div>
+          </div>
+        </div>
+        <!-- End Blog Post Siddebar -->
+      </div>
+    </div>
+  </section>
+  <!--================ End Blog Post Area =================-->
+{% endblock %}
